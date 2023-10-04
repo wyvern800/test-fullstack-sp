@@ -20,6 +20,8 @@ export const Wrapper = styled.main`
   @media (max-width: 1024px) {
     max-width: 100%;
     min-height: 99vh;
+    min-width: 98vw;
+    justify-content: space-between;
   }
 `;
 
@@ -167,7 +169,7 @@ export const Card = styled.div`
   border-radius: 5px;
 
   @media (max-width: 400px) {
-    flex-basis: calc(50% - 20px); /* Two items per row for smaller screens */
+    flex-basis: calc(50% - 20px);
   }
 `;
 

@@ -126,7 +126,7 @@ const Home: FC = () => {
   return stage === Stages.INIT ? (
     <>
       <Styled.Wrapper>
-        <Styled.Header title="Data importing" style={{ marginBottom: "15px" }}>
+        <Styled.Header title="data-importing" style={{ marginBottom: "15px" }}>
           Data Importing
         </Styled.Header>
         <Styled.Row>
@@ -173,11 +173,12 @@ const Home: FC = () => {
   ) : stage === Stages.LOADED && users ? (
     <Styled.Wrapper>
       <Styled.Actions>
-        <Styled.Header title="Data importing">Users</Styled.Header>
+        <Styled.Header title="users">Users</Styled.Header>
         <Styled.Close onClick={() => handleDeletion()} />
       </Styled.Actions>
       <Styled.WrapperCard>
         <Styled.Search
+          data-testid="search"
           type="search"
           value={search}
           placeholder="Search for any data"
@@ -203,6 +204,7 @@ const Home: FC = () => {
           )}
         </Styled.UserCards>
       </Styled.WrapperCard>
+      <div></div>
     </Styled.Wrapper>
   ) : (
     <Loading />
