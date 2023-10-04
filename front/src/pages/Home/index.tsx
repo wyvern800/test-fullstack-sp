@@ -159,6 +159,7 @@ const Home: FC = () => {
             <div>Drag your file here</div>
             <Styled.Select>
               <Styled.Upload
+                data-testid="import"
                 onChange={handleFileChange}
                 ref={inputRef}
                 type="file"

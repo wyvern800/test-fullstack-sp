@@ -140,7 +140,10 @@ export const ExportIcon = styled(FaFileImport)`
 `;
 
 export const Upload = styled.input`
-  display: none;
+  //display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
 `;
 
 export const UserCards = styled.div`
