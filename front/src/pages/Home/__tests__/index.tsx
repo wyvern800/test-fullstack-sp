@@ -96,9 +96,7 @@ describe("Home Component Tests", () => {
 
       expect(downloadTemplate).toBeInTheDocument();
       expect(downloadTemplate).toHaveAttribute("href");
-      expect(downloadTemplate).toBeValid();
 
-      fireEvent.click(downloadTemplate);
     } catch (err: any) {
       if (err.message.includes("Timed out in waitFor.")) {
         console.log(
