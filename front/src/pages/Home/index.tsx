@@ -137,7 +137,7 @@ const Home: FC = () => {
             <div>- City</div>
             <div>- Country</div>
             <div style={{ marginBottom: "15px" }}>- Favorite Sport</div>
-            <Styled.Button href="/files/test.csv" download>
+            <Styled.Button data-testid="download-template" href="/files/test.csv" download>
               Download template <FaFileDownload style={{ marginLeft: "5px" }} />
             </Styled.Button>
           </Styled.DesiredData>
@@ -178,6 +178,7 @@ const Home: FC = () => {
       </Styled.Actions>
       <Styled.WrapperCard>
         <Styled.Search
+          data-testid="search"
           type="search"
           value={search}
           placeholder="Search for any data"
@@ -188,7 +189,7 @@ const Home: FC = () => {
           {users?.length ? (
             users?.map((user: Users, index) => {
               return (
-                <Styled.Card key={`${user.name + index}`}>
+                <Styled.Card data-testid="user-card" key={`${user.name + index}`}>
                   <Styled.Name>{user.name}</Styled.Name>
                   <FaLocationDot /> {user.city}, {user.country}
                   <Styled.Sport>

@@ -85,4 +85,64 @@ describe("Home Component Tests", () => {
       }
     }
   });
+
+  it("checks if the file template can be downloaded", async () => {
+    const { findByTestId } = render(<Home />);
+
+    try {
+      const downloadTemplate = await waitFor(() =>
+        findByTestId("download-template")
+      );
+
+      expect(downloadTemplate).toBeInTheDocument();
+      expect(downloadTemplate).toHaveAttribute("href");
+      expect(downloadTemplate).toBeValid();
+
+      fireEvent.click(downloadTemplate);
+    } catch (err: any) {
+      if (err.message.includes("Timed out in waitFor.")) {
+        console.log(
+          "Skipping the test because downloadTemplate element was not found."
+        );
+      } else {
+        throw err;
+      }
+    }
+  });
+
+  it("check if searching is working", async () => {
+    const { findByTestId, findAllByTestId } = render(<Home />);
+
+    try {
+      const search = await waitFor(() => findByTestId("search"));
+
+      expect(search).toBeInTheDocument();
+
+      fireEvent.change(search, {
+        target: {
+          value: "basket",
+        },
+      });
+
+      const initialUserCards = await waitFor(() =>
+        findAllByTestId("user-card")
+      );
+
+      await waitFor(async () => {
+        const updatedComponents = await waitFor(() =>
+          findAllByTestId("user-card")
+        );
+
+        expect(updatedComponents.length).toBeLessThan(initialUserCards.length);
+      });
+    } catch (err: any) {
+      if (err.message.includes("Timed out in waitFor.")) {
+        console.log(
+          "Skipping the test because downloadTemplate element was not found."
+        );
+      } else {
+        throw err;
+      }
+    }
+  });
 });

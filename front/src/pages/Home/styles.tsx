@@ -17,6 +17,8 @@ export const Wrapper = styled.main`
   max-width: 50vw;
   min-width: 50vw;
 
+  transition: width, height 0.3s ease 0s;
+
   @media (max-width: 1024px) {
     max-width: 100%;
     min-height: 99vh;
