@@ -69,7 +69,7 @@ const Home: FC = () => {
       .then((res) => {
         setUsers(res.data.data);
         setStage(Stages.LOADED);
-        toast.success('File successfully uploaded!');
+        toast.success("File successfully uploaded!");
       })
       .catch((err) => {
         if (err.response.data.includes("Only CSV files are allowed!")) {
@@ -118,7 +118,7 @@ const Home: FC = () => {
       .then((res) => {
         setUsers([]);
         setStage(Stages.INIT);
-        toast.info('File successfully deleted, you can now upload another.');
+        toast.info("File successfully deleted, you can now upload another.");
       })
       .catch((err) => {});
   };
@@ -126,13 +126,13 @@ const Home: FC = () => {
   return stage === Stages.INIT ? (
     <>
       <Styled.Wrapper>
-        <Styled.Header title="data-importing" style={{ marginBottom: "15px" }}>
+        <Styled.Header style={{ marginBottom: "15px" }}>
           Data Importing
         </Styled.Header>
         <Styled.Row>
           <Styled.DesiredData>
-            To import users in our platform, you must use our template and
-            fill in with your informations, here they are if you don&apos;t know:
+            To import users in our platform, you must use our template and fill
+            in with your informations, here they are if you don&apos;t know:
             <div style={{ marginTop: "15px" }}>- Name</div>
             <div>- City</div>
             <div>- Country</div>
@@ -173,12 +173,11 @@ const Home: FC = () => {
   ) : stage === Stages.LOADED && users ? (
     <Styled.Wrapper>
       <Styled.Actions>
-        <Styled.Header title="users">Users</Styled.Header>
+        <Styled.Header>Users</Styled.Header>
         <Styled.Close onClick={() => handleDeletion()} />
       </Styled.Actions>
       <Styled.WrapperCard>
         <Styled.Search
-          data-testid="search"
           type="search"
           value={search}
           placeholder="Search for any data"
@@ -193,7 +192,7 @@ const Home: FC = () => {
                   <Styled.Name>{user.name}</Styled.Name>
                   <FaLocationDot /> {user.city}, {user.country}
                   <Styled.Sport>
-                    {getSportIcon(user.favorite_sport?.toLowerCase())}{" "}
+                    {getSportIcon(user.favorite_sport?.toLowerCase())}
                     {user.favorite_sport}
                   </Styled.Sport>
                 </Styled.Card>
