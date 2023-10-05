@@ -8,7 +8,7 @@ import { filterByQuery } from "./utils";
 
 const router = express.Router();
 
-let userFile: any[] = [];
+export let userFile: any[] = [];
 
 // Configure Multer with the custom filter
 const storage: multer.StorageEngine = multer.diskStorage({
@@ -47,11 +47,11 @@ router.post("/files", upload.single("file"), (req: Request, res: Response) => {
         res.send({ msg: "File uploaded successfully!", data: userFile });
       });
   } else {
-    res.status(400).send("Invalid file format. Please upload a CSV file.");
+    res.status(400).json("Only CSV files are allowed!");
   }
 });
 
-router.delete("/files", (req: Request, res: Response) => {
+router.delete("/files", (_: Request, res: Response) => {
   userFile = [];
   res.send("File cleared successfully!");
 });

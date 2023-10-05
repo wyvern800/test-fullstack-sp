@@ -7,6 +7,6 @@ export const csvFileFilter = (req: Request, file: Express.Multer.File, cb: any) 
     cb(null, true);
   } else {
     // Reject the file
-    cb("Only CSV files are allowed!", false);
+    cb(null, false);
   }
 };
