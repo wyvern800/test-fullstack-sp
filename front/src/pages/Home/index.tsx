@@ -168,6 +168,7 @@ const Home: FC = () => {
             </Styled.Select>
           </Styled.ImportFile>
         </Styled.Row>
+        <div></div>
       </Styled.Wrapper>
     </>
   ) : stage === Stages.LOADED && users ? (
