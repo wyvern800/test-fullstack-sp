@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests --watch",
-    "start": "nodemon --exec ts-node src/app.ts"
+    "dev": "nodemon --exec ts-node src/app.ts"
   }, 
   "keywords": [],
   "author": "",
