@@ -24,13 +24,12 @@ app.use('/api', router);
 
 // Error handling middleware for 404 Not Found
 app.use((req: Request, res: Response) => {
-  res.status(404).send('Route not Found');
+  res.status(404).json('Route not Found');
 });
 
 // Error handling middleware for other errors
 app.use((err: Error, req: Request, res: Response) => {
-  // Send an error response to the client
-  res.status(500).send('Internal server error');
+  res.status(500).json("Internal server error");
 });
 
 app.listen(PORT, () => {
